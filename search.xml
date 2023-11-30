@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>日常学习debug记录</title>
+      <link href="/2023/11/29/%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0debug%E8%AE%B0%E5%BD%95/"/>
+      <url>/2023/11/29/%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0debug%E8%AE%B0%E5%BD%95/</url>
+      
+        <content type="html"><![CDATA[<h1 id="AI-studying"><a href="#AI-studying" class="headerlink" title="AI studying"></a>AI studying</h1><ol><li><p>虚拟环境<br/><br>在anaconda Prompt中，使用<code>conda create --name d2l python=3.9 -y</code>创建虚拟环境，使用<code>activate pytorch</code>激活虚拟环境，用<code>pip list</code>查看安装列表<br/><br>在虚拟环境中安装AI全家桶时注意版本的对应，使用<code>print(torch.__version__) </code>查看torch的版本；使用<code>python --version </code>查看python版本；使用<code>nvidia-smi</code>查看CUDA版本,若安装CUDA Toolkit则使用<code>nvcc -V</code>查看运行时API版本</p></li><li><p>cuda的安装<br/><br>参考连接如下<br/><br><a href="https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/">conda换源-清华</a><br/><br><a href="https://blog.csdn.net/jhsignal/article/details/111401628">cuda和cuDNN的安装</a><br/><br><a href="https://blog.csdn.net/qq_46126258/article/details/112708781">torch的GPU版本安装的系列问题</a>,<a href="https://blog.csdn.net/youtiankeng/article/details/127759029">版本对应图</a><br/><br>1.13.0版本的pytorch对应0.14.0的torchvision和3.7到3.10的python以及0.13.0的torchaudio，为了安装GPU正确版本（0.13.0及以上才有gpu 版本）的pytorch,先删除CPU版本的pytorch,使用<code>conda uninstall pytorch</code>或是使用<code>pip uninstall torch</code>去卸载（前者未换国内源或会失败）<br/><br>然后去官网安装对应的版本<a href="https://download.pytorch.org/whl/torch/">torch</a>，<a href="https://download.pytorch.org/whl/torchvision/">torchvision</a>，<a href="https://download.pytorch.org/whl/torchaudio/">torchaudio</a><br/><br>torch-1.13.0+cu116-cp37-cp37m-win_amd64.whl，意为torch1.13.0、cuda11.6、python3.7、win 64位系统的版本,故我们安装<code>torch-1.13.0+cu117-cp37-cp37m-win_amd64.whl</code>和<code>torchvision-0.14.0+cu117-cp37-cp37m-win_amd64</code>和<code>torchaudio-0.13.0+cu117-cp37-cp37m-win_amd64</code>三个whl文件,然后进入虚拟环境安装，分别使用<code>pip install torch-1.13.0.whl+cu117-cp37-cp37m-win_amd64.whl</code>和<code>pip install torchvision-0.14.0+cu117-cp37-cp37m-win_amd64.whl</code>以及<code>pip install torchaudio-0.13.0+cu117-cp37-cp37m-win_amd64.whl</code>安装</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 日常debug </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习记录 </tag>
+            
+            <tag> AI学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>博客搭建记录</title>
+      <link href="/2023/11/29/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/"/>
+      <url>/2023/11/29/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95/</url>
+      
+        <content type="html"><![CDATA[<p>该文章记录了操作该博客系统所需要的指令和注意事项<br> <span id="more"></span></p><h1 id="相关指令"><a href="#相关指令" class="headerlink" title="相关指令"></a>相关指令</h1><ol><li>使用<code>hexo new &lt;title&gt;</code>更新文章</li><li>使用<code>hexo clean</code>清除旧的数据；使用<code>hexo g</code>生成新页面；使用<code>hexo d</code>部署到网页上，即<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code></li><li>用<code>hexo s</code>预览网页效果</li><li>通过<code>https://mztom3745.com.cn</code>访问博客页面</li></ol><hr><h1 id="markdown写作"><a href="#markdown写作" class="headerlink" title="markdown写作"></a>markdown写作</h1><p>主要参考:<a href="https://markdown.com.cn/cheat-sheet.html#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95">markdown官方教程</a><br/></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网页搭建 </category>
+          
+          <category> 个人博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习记录 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2023/11/20/hello-world/"/>
+      <url>/2023/11/20/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>it’s a hello page<br> <span id="more"></span><br>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
