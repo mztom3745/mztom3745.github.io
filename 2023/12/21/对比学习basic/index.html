@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="对比学习综述学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对比学习basic">
+<meta property="og:url" content="http://example.com/2023/12/21/%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0basic/index.html">
+<meta property="og:site_name" content="mztom&#39;s Blog">
+<meta property="og:description" content="对比学习综述学习">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-12-21T06:22:24.000Z">
+<meta property="article:modified_time" content="2023-12-27T15:19:52.430Z">
+<meta property="article:author" content="mztom">
+<meta property="article:tag" content="学习记录">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="论文">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2023/12/21/%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0basic/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>对比学习basic | mztom's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">mztom's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/21/%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0basic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="mztom">
+      <meta itemprop="description" content="学习日志">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="mztom's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          对比学习basic
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-12-21 14:22:24" itemprop="dateCreated datePublished" datetime="2023-12-21T14:22:24+08:00">2023-12-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-12-27 23:19:52" itemprop="dateModified" datetime="2023-12-27T23:19:52+08:00">2023-12-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">AI学习</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>对比学习综述学习<br> <span id="more"></span></p>
+<h1 id="对比学习引入"><a href="#对比学习引入" class="headerlink" title="对比学习引入"></a>对比学习引入</h1><p>模型对比着进行学习，它无需知道样本的标签，只需要知道哪些样本是类似的，哪些样本是不类似的。将这些样本通过一个网络进行编码，得到对应的特征。在特征空间中，我们期望类似图片的特征尽可能接近，不同图片的特征尽可能原理。</p>
+<p>我们需要代理任务（pretask）来定义图片的相似和不相似,提供一个监督信号去训练模型，即自监督学习。<br>Instance discrimination(个体判别)是一种经典的代理任务，<br>出自论文Unsupervised Feature Learning via Non-Parametric Instance Discrimination<br>对比学习的好处在于其<strong>灵活性</strong>，通过代理任务定义好正负样本后，就是标准化的流程，即通过一个模型学习到特征，用对比学习的一些典型损失去进行训练（如MoCo提到的NCE loss）</p>
+<h1 id="MoCo论文精读"><a href="#MoCo论文精读" class="headerlink" title="MoCo论文精读"></a>MoCo论文精读</h1><p>MoCo:Momentum Contrast for Unsupervised Visual Representation Learning<br>参考：<br/><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/zvideo/1454723120678936576">讲解</a><br/><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44751294/article/details/122720525">对应笔记</a></p>
+<p>下面是一些简单的随记：</p>
+<p>动量：加权移动平均，让当前时刻的输出不完全依赖于当前输入<br/><br>$y_t=m<em>y_{y-1}+(1-m)</em>x_t$<br/><br>MoCo利用动量特性，缓慢更新编码器，让字典特征尽量保持一致<br/></p>
+<p>MoCo将对比学习看成字典查询任务，建立一个动态字典=队列+移动平均编码器。<br/><br>结果上MoCo在ImageNet数据上的的linear protocol评估具有很好的效果。linear protocol将骨干网络冻住，只学习全连接层，相当于把提前训练好的模型当成特征提取器，这样就能很好地对比预训练模型的效果。<br>MoCo具有很好的迁移性，能在下游任务中有很好的效果。<br/></p>
+<p>视觉中无监督远不如有监督。<br/><br>pretext：代理任务，为了学习好的特征，去充当标签信息，有监督学习是一定的。<br/><br>loss functions：对比学习相似相近，相异就远，对比学习的目标target是在变化的，这不同于有监督学习。<br/><br>这两个是和有监督不一样的地方，是该文章的重点。</p>
+<p>MoCo强调使用的字典是<strong>大</strong>（large）且<strong>一致的</strong>（consistent）。<br/><br>方法的核心之一是<strong>Dictionary as a queue</strong>，用队列可以重用训练得到key,这些key是之前的mini-batch训练中所得到的。<br/><br>之二是<strong>Momentum update</strong>，用动量的思想更新编码器。这个生成key的编码器无法通过反向传播的方式去更新参数。所以通过动量的方式从q的编码器中提取参数变化进行缓慢更新。</p>
+<p>目前架构有：端到端的学习end-to-end：字典能实时更新，但字典不能太大因为塞不下、第二种是memory bank：从memroy bank中去抽样去训练，但缺乏特征的一致性。然后就是MoCo。</p>
+<h1 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h1><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/zvideo/1460828005077164032">视频</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44751294/article/details/122728621">笔记</a></p>
+<h2 id="阶段一：百花齐放"><a href="#阶段一：百花齐放" class="headerlink" title="阶段一：百花齐放"></a>阶段一：百花齐放</h2><h3 id="InstDisc"><a href="#InstDisc" class="headerlink" title="InstDisc"></a>InstDisc</h3><p>提出了个体判别任务，将每一张图片都看作是一个类别，通过一个卷积神经网络来将图片进行编码成一个低维特征，然后使得这些特征在特征空间上都尽可能的区分开（特征用memory bank存储）</p>
+<h3 id="InstSpread"><a href="#InstSpread" class="headerlink" title="InstSpread"></a>InstSpread</h3><p>视为SimCLR的前身，使用mini-batch中的数据作为负样本，使用一个编码器进行端到端的学习。但由于字典不够大，负样本不够多，未使用SimCLR投影函数和多样的数据增广导致其效果并不是很好。</p>
+<h3 id="CPC"><a href="#CPC" class="headerlink" title="　CPC"></a>　CPC</h3><p>属于机器学习中生成式模型，提出了一个通用的结构，能够处理连续的序列，并进行合理的预测。</p>
+<h3 id="CMC"><a href="#CMC" class="headerlink" title="CMC"></a>CMC</h3><p>提出一个物体的许多视角都可以看作正样本。它将不同的view作为正例，将其他图片以及其他图片的views作为负例子，进行训练。</p>
+<p>第一阶段介绍以上四篇工作，可以看到以上的工作代理任务不尽相同，其中有个体判别，有预测未来，还有多视角多模态。使用的目标函数也不尽相同，有NCE，infoNCE以及其变体。使用的模型也可以是不同的，比如InvaSpread使用的是相同的编码器对key和query进行编码，CMC对key和query使用的是不同的编码，是百花齐放的。</p>
+<h2 id="阶段二：CV双雄"><a href="#阶段二：CV双雄" class="headerlink" title="阶段二：CV双雄"></a>阶段二：CV双雄</h2><h3 id="MoCov1"><a href="#MoCov1" class="headerlink" title="MoCov1"></a>MoCov1</h3><p>主要贡献就是把之前对比学习的一些方法归纳为一个字典查询问题。提出了一个队列，一个动量编码器，从而形成一个又大又一致的字典，帮助更好的进行对比学习。MoCo对InstDise的改进可以说是简单又有效,其提出用队列替换memory bank以及提出了动量更新的方式，对效果有显著的提升，同时对后续工作也产生了深远的影响。</p>
+<h3 id="SimCLRv1"><a href="#SimCLRv1" class="headerlink" title="SimCLRv1"></a>SimCLRv1</h3><p>方法比较简单，概念上也更容易理解，方法上也很容易解释。其优化是1.采用了更多的数据增强（裁剪和色彩变幻）2.采用了非线性的投影头（）3.用了更多的batch-size和更久的训练。</p>
+<h3 id="MoCov2"><a href="#MoCov2" class="headerlink" title="MoCov2"></a>MoCov2</h3><p>借鉴了SimCLR，选用了MLP的投影层，更多的数据增强方式，cosine learning rate schedule，以及更多的迭代epoch。SimCLR在batch较少的情况下无法发挥效果，在batch多的情况下才可以出效果，但是算力要求太高了。所以MOCO是一个对于计算资源要求不是很高，但是却很有效的模型。</p>
+<h3 id="SimCLRv2"><a href="#SimCLRv2" class="headerlink" title="SimCLRv2"></a>SimCLRv2</h3><p>SimCLRv2相比SimCLRv1就是用了更大的模型，加深了projection head，最后用了半监督编码器。</p>
+<h3 id="SWaV-Swap-Assignment-Views"><a href="#SWaV-Swap-Assignment-Views" class="headerlink" title="SWaV(Swap Assignment Views)"></a>SWaV(Swap Assignment Views)</h3><p>将对比学习和之前的聚类的方法合在的一起。<br>聚类也是无监督特征表示学习的方法，而且它也希望相似的物体都聚集在一个聚类中心附近，不相似的物体推到别的聚类中心。以下是SwAV的思想</p>
+<ol>
+<li>如果是和负例进行对比的话，需要和成千上万个负例进行对比，即使是MOCO中6w个负例，也只是一个近似的值，但是聚类的话，就仅仅需要和三千个聚类核心即可。</li>
+<li>这些聚类中心是有含义的，而如果像之前一样用负样本进行对比学习的话，有的负样本不均衡，有的还可能是正样本，不如聚类中心有效。</li>
+<li>Multi-crop：选择了两个160×160的crop去注意全局特征，选择四个96×96的crop去注意局部特征。这样在计算量变化不大的情况下，可以获取更多的正样本，也可以同时注意了全局特征与局部的特征。</li>
+</ol>
+<p>到了第二阶段，其实很多细节都趋于统一了，比如目标函数都是使用infoNCE，模型都归一为用一个encoder+projection head了，大家都采用了一个更强的数据增强，都想用一个动量编码器，也都尝试训练更久，最后在ImageNet上的准确度也逐渐逼近于有监督的基线模型。</p>
+<h2 id="阶段三：不用负样本"><a href="#阶段三：不用负样本" class="headerlink" title="阶段三：不用负样本"></a>阶段三：不用负样本</h2><h3 id="BYOL"><a href="#BYOL" class="headerlink" title="BYOL"></a>BYOL</h3><p>将配对的问题换成了预测的问题，<br>即用自己视角的特征去预测另一个视角的特征，通过预测的方式去完成模型<br>后面有篇博客认为BatchNorm是BYOL成功的关键，相当于提供了一种隐式的正负样本学习<br>再后面作者自证并非如此</p>
+<h3 id="SimSiam"><a href="#SimSiam" class="headerlink" title="SimSiam"></a>SimSiam</h3><p>对比学习堆太多了，SimSiam 不需要用负样本，不需要大的batchsize，不需要动量编码器，即使在这种条件下，SimSiam不仅没有模型坍塌，反而取得了很好的模型效果。强调停止梯度的重要性,通过逐步更新的方式避免坍塌。</p>
+<p>SimSiam能够成功训练的原因，不会发生模型坍塌，主要就是因为有stop gradient这个操作的存在。由于stop gradient，可以将SimSiam的结构看成是一个EM算法，相当于是在解决两个子问题，而模型更新也在交替进行，相当于不断的更新聚类中心。</p>
+<h2 id="阶段四：Transformer"><a href="#阶段四：Transformer" class="headerlink" title="阶段四：Transformer"></a>阶段四：Transformer</h2><h3 id="MoCov3"><a href="#MoCov3" class="headerlink" title="MoCov3"></a>MoCov3</h3><p>改进了Vit自监督学习训练方法。<br>是MoCoV2+SimSiam的结合。<br>训练Vit时出现大batch-size掉点的问题，通过查看回传梯度，发现梯度也会在第一层出现波动（patch projection）。发现把patch projection给冻住会有更好的效果。</p>
+<h3 id="DINO"><a href="#DINO" class="headerlink" title="DINO"></a>DINO</h3><p>同样谈及了Vit自监督学习训练方法。<br>Self-distillation with no labels<br>自蒸馏框架，在目标函数的地方做了一个额外的工作centering，避免模型的坍塌</p>
+
+    </div>
+
+    
+    
+    
+    
+    
+     <div>
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+     </div>
+    
+      
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" rel="tag"># 学习记录</a>
+              <a href="/tags/AI/" rel="tag"># AI</a>
+              <a href="/tags/%E8%AE%BA%E6%96%87/" rel="tag"># 论文</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/12/20/AI%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" rel="prev" title="AI学习——卷积神经网络">
+      <i class="fa fa-chevron-left"></i> AI学习——卷积神经网络
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/12/21/Vit_basic/" rel="next" title="Vit_basic">
+      Vit_basic <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E5%BC%95%E5%85%A5"><span class="nav-number">1.</span> <span class="nav-text">对比学习引入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MoCo%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB"><span class="nav-number">2.</span> <span class="nav-text">MoCo论文精读</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%BC%E8%BF%B0"><span class="nav-number">3.</span> <span class="nav-text">综述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%B6%E6%AE%B5%E4%B8%80%EF%BC%9A%E7%99%BE%E8%8A%B1%E9%BD%90%E6%94%BE"><span class="nav-number">3.1.</span> <span class="nav-text">阶段一：百花齐放</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#InstDisc"><span class="nav-number">3.1.1.</span> <span class="nav-text">InstDisc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InstSpread"><span class="nav-number">3.1.2.</span> <span class="nav-text">InstSpread</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CPC"><span class="nav-number">3.1.3.</span> <span class="nav-text">　CPC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CMC"><span class="nav-number">3.1.4.</span> <span class="nav-text">CMC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%B6%E6%AE%B5%E4%BA%8C%EF%BC%9ACV%E5%8F%8C%E9%9B%84"><span class="nav-number">3.2.</span> <span class="nav-text">阶段二：CV双雄</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MoCov1"><span class="nav-number">3.2.1.</span> <span class="nav-text">MoCov1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SimCLRv1"><span class="nav-number">3.2.2.</span> <span class="nav-text">SimCLRv1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MoCov2"><span class="nav-number">3.2.3.</span> <span class="nav-text">MoCov2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SimCLRv2"><span class="nav-number">3.2.4.</span> <span class="nav-text">SimCLRv2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SWaV-Swap-Assignment-Views"><span class="nav-number">3.2.5.</span> <span class="nav-text">SWaV(Swap Assignment Views)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%B6%E6%AE%B5%E4%B8%89%EF%BC%9A%E4%B8%8D%E7%94%A8%E8%B4%9F%E6%A0%B7%E6%9C%AC"><span class="nav-number">3.3.</span> <span class="nav-text">阶段三：不用负样本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BYOL"><span class="nav-number">3.3.1.</span> <span class="nav-text">BYOL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SimSiam"><span class="nav-number">3.3.2.</span> <span class="nav-text">SimSiam</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%B6%E6%AE%B5%E5%9B%9B%EF%BC%9ATransformer"><span class="nav-number">3.4.</span> <span class="nav-text">阶段四：Transformer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MoCov3"><span class="nav-number">3.4.1.</span> <span class="nav-text">MoCov3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DINO"><span class="nav-number">3.4.2.</span> <span class="nav-text">DINO</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">mztom</p>
+  <div class="site-description" itemprop="description">学习日志</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/CS-BAOYAN/" title="https:&#x2F;&#x2F;github.com&#x2F;CS-BAOYAN&#x2F;" rel="noopener" target="_blank">计算机保研网</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://zh.d2l.ai/" title="http:&#x2F;&#x2F;zh.d2l.ai&#x2F;" rel="noopener" target="_blank">《动手学深度学习》</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://snip.mathpix.com/home" title="https:&#x2F;&#x2F;snip.mathpix.com&#x2F;home" rel="noopener" target="_blank">latex在线转换</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2023-11 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">mztom</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共23.4k字</span>
+</div>
+
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
